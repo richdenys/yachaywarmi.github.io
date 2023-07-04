@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title> Yachay Warmi</title>
+
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- progress barstle -->
+  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- font wesome stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+
+
+
+  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
+
+
+</head>
+
+<body>
+  <div class="top_container sub_pages">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="">
+            <span>
+              Yachay Warmi
+
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html"> Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="about.html"> Nosotros </a>
+                </li>
+
+                <li class="nav-item ">
+                  <a class="nav-link" href="teacher.html"> Docentes </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="vehicle.html"> JUGAR </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contacto</a>
+                </li>
+
+              </ul>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <!-- end header section -->
+  <section>
+    <div class="game-container">
+      <h1>Juego de Colores</h1>
+      <div class="game-box" id="box1" onclick="boxClicked(1)"></div>
+      <div class="game-box" id="box2" onclick="boxClicked(2)"></div>
+      <div class="game-box" id="box3" onclick="boxClicked(3)"></div>
+      <div class="game-box" id="box4" onclick="boxClicked(4)"></div>
+      <div class="game-box" id="box5" onclick="boxClicked(5)"></div>
+      <div class="game-box" id="box6" onclick="boxClicked(6)"></div>
+  </div>  
+  <div class="calculator container my-5">
+    <h1>CALCULADORA</h1>
+    <input class="calculadora" type="text" id="display" disabled>
+    <div class="buttons">
+      <button class="operator" onclick="appendToDisplay('/')">÷</button>
+      <button class="operator" onclick="appendToDisplay('*')">x</button>
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button class="operator" onclick="appendToDisplay('-')">-</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button class="operator" onclick="appendToDisplay('+')">+</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button class="equal" onclick="calculate()">=</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button class="clear" onclick="clearDisplay()">C</button>
+    </div>
+
+
+  </section>
+
+
+
+  <!-- vehicle section -->
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>&copy; 2023 Yachaywarmi - Todos los derechos reservados</p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- progreesbar script -->
+
+  </script>
+  <script>
+    // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+    // Australia.
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 11,
+        center: {
+          lat: 40.645037,
+          lng: -73.880224
+        },
+      });
+
+      var image = 'images/maps-and-flags.png';
+      var beachMarker = new google.maps.Marker({
+        position: {
+          lat: 40.645037,
+          lng: -73.880224
+        },
+        map: map,
+        icon: image
+      });
+    }
+  
+  //****CALCULADORA
+  let display = document.getElementById('display');
+  let expression = '';
+
+  function appendToDisplay(value) {
+    expression += value;
+    display.value = expression;
+  }
+
+  function clearDisplay() {
+    expression = '';
+    display.value = '';
+  }
+
+  function calculate() {
+    try {
+      let result = eval(expression);
+      display.value = result;
+      expression = result.toString();
+    } catch (error) {
+      display.value = 'Error';
+      expression = '';
+    }
+  }
+
+  //*FIN
+  
+
+//**JUEGO 02
+
+//***FIN
+
+  //******************SCRIPO JUEGO
+  var sequence = [];
+    var playerSequence = [];
+    var level = 1;
+    var boxes = document.getElementsByClassName("game-box");
+    var message = document.createElement("h2");
+    message.classList.add("hidden");
+
+    // Genera una nueva secuencia de colores
+    function generateSequence() {
+        sequence = [];
+        for (var i = 0; i < level; i++) {
+            var randomBox = Math.floor(Math.random() * 6) + 1;
+            sequence.push(randomBox);
+        }
+    }
+
+    // Muestra la secuencia de colores
+    function showSequence() {
+        var i = 0;
+        var interval = setInterval(function() {
+            playBox(sequence[i]);
+            i++;
+            if (i >= sequence.length) {
+                clearInterval(interval);
+            }
+        }, 1000);
+    }
+
+    // Reproduce el color de la caja seleccionada
+    function playBox(box) {
+        var selectedBox = document.getElementById("box" + box);
+        selectedBox.style.opacity = "1";
+        setTimeout(function() {
+            selectedBox.style.opacity = "0.3";
+        }, 500);
+    }
+
+    // Comprueba la selección del jugador
+    function boxClicked(box) {
+        playerSequence.push(box);
+        playBox(box);
+
+        if (playerSequence.length === sequence.length) {
+            if (checkSequence()) {
+                level++;
+                playerSequence = [];
+                message.innerText = "¡Correcto! Siguiente nivel: " + level;
+                message.classList.remove("hidden");
+                setTimeout(function() {
+                    message.classList.add("hidden");
+                    playGame();
+                }, 1500);
+            } else {
+                message.innerText = "¡Incorrecto! Fin del juego. Nivel alcanzado: " + level;
+                message.classList.remove("hidden");
+                setTimeout(function() {
+                    resetGame();
+                }, 1500);
+            }
+        }
+    }
+
+    // Comprueba si la secuencia del jugador coincide con la secuencia generada
+    function checkSequence() {
+        for (var i = 0; i < sequence.length; i++) {
+            if (playerSequence[i] !== sequence[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Inicia el juego
+    function playGame() {
+        generateSequence();
+        showSequence();
+    }
+
+    // Reinicia el juego
+    function resetGame() {
+        level = 1;
+        playerSequence = [];
+        message.classList.add("hidden");
+        playGame();
+    }
+
+    // Inicia el juego al cargar la página
+    window.onload = function() {
+        var gameContainer = document.querySelector(".game-container");
+        gameContainer.appendChild(message);
+        playGame();
+    };
+
+  //*************FIN
+  
+  </script>
+  <!-- google map js -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
+  </script>
+  <!-- end google map js -->
+</body>
+
+</html>
