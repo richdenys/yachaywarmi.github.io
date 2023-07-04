@@ -463,7 +463,9 @@ a:focus {
   display: none;
 }
 
-
+.card-img-top{
+  height: 250px;
+}
 
 /* FIN */
 
